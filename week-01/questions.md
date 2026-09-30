@@ -2,7 +2,6 @@
 
 ## Q1 - AI → ML → Deep Learning → Generative AI → Agents
 
-## Q1. AI → ML → Deep Learning → Generative AI → AI Agents
 
 ### Answer
 
