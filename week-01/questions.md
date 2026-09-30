@@ -841,7 +841,7 @@ REFLECT
 ```
 For important claims, I should prefer authoritative or primary sources first, followed by high-quality secondary sources. AI assistants can help with explanation, brainstorming, comparison, and finding possible references, but the AI-generated answer itself should not be treated as the final authority.
 
-###V - Verification
+### V - Verification
 
 I verified my protocol against the VLSIGuru Week 1 Student Assessment and its recommended A-E-V-R workflow and source hierarchy.
 
@@ -853,7 +853,7 @@ Define → Ask → Inspect → Verify → Conclude → Document → Reflect
 
 This process helps make my AI-assisted work more traceable and reduces the risk of accepting an AI-generated answer simply because it sounds convincing.
 
-###R - Reflection
+### R - Reflection
 
 This question helped me understand that using AI responsibly is not just about writing a good prompt. I also need to check what the AI produces.
 
@@ -863,4 +863,4 @@ I also learned that uncertainty is acceptable. If I cannot verify a claim, it is
 
 Going forward, I will use the following personal rule:
 
-####Ask AI for assistance, inspect the output, verify important claims, document the evidence, and make the final judgment myself.
+#### Ask AI for assistance, inspect the output, verify important claims, document the evidence, and make the final judgment myself.
