@@ -550,6 +550,7 @@ An AI agent is a system designed to work toward a goal through multiple steps. I
               v               v
           Repeat          Final Response
           Workflow
+```
 ### 3. Agent vs Simple Chatbot
 
 A simple chatbot mainly receives a user's message and generates a response. It is generally reactive and depends on the user's prompts to continue the interaction.
@@ -702,6 +703,7 @@ For example:
 ```text
 IF temperature > 40°C
     THEN display "High Temperature Warning"
+```
 This does not require machine learning because the condition and result are explicitly defined.
 
 However, tasks involving complex patterns, large amounts of data, or changing inputs may be more difficult to handle using only fixed rules.
@@ -836,6 +838,7 @@ DOCUMENT
    ↓
 REFLECT
 
+```
 For important claims, I should prefer authoritative or primary sources first, followed by high-quality secondary sources. AI assistants can help with explanation, brainstorming, comparison, and finding possible references, but the AI-generated answer itself should not be treated as the final authority.
 
 ###V - Verification
