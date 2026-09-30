@@ -363,7 +363,7 @@ Selected token added to context
               v
     Generated Response
 
----
+```
 
 ## Q4. Hallucination Experiment: Can AI Sound Confident and Still Be Wrong?
 
