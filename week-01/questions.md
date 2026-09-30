@@ -190,15 +190,63 @@ achieving a goal by planning steps, using tools, and taking actions.
 This helped me understand why simply calling every modern AI system
 "Generative AI" is not technically accurate.
 
-## Q2 - Is Everything That Looks Intelligent Actually AI?
+## Q2. Is Everything That Looks Intelligent Actually AI?
 
-### A - Answer
+### Classification
 
-### E - Evidence
+| Case | Scenario | Classification | Reason |
+|---|---|---|---|
+| A | A calculator produces 25 × 16 = 400. | Deterministic / Traditional Software | The calculator follows explicitly programmed arithmetic rules. It does not learn from data or generate a response based on learned patterns. |
+| B | A rule-based program says: If temperature > 80°C, display WARNING. | Deterministic / Traditional Software | The behavior is directly specified by an explicit rule. Whenever the condition is satisfied, the program produces the predefined output. |
+| C | An email system identifies a message as spam based on patterns learned from previous email data. | Machine-Learning-Based AI | The system learns patterns from previous data and uses those learned patterns to classify new emails as spam or not spam. |
+| D | An AI assistant writes a summary of a document. | Generative AI | The system generates new text based on the content of the document and the user's request. |
+| E | A navigation application predicts estimated arrival time using traffic and historical data. | Machine-Learning-Based AI | The system can use traffic and historical data to identify patterns and predict an estimated arrival time for a new journey. |
 
-### V - Verification
+---
 
-### R - Reflection
+### Reasoning for Each Case
+
+#### A. Calculator
+
+A calculator is an example of deterministic or traditional software. When the user enters `25 × 16`, the calculator applies programmed arithmetic operations and produces `400`. It does not need to learn from previous examples.
+
+#### B. Rule-Based Temperature Warning
+
+This is also deterministic software. The program has an explicitly defined rule:
+
+**If temperature > 80°C → display WARNING**
+
+The same input condition leads to the predefined action. There is no learning from data involved.
+
+#### C. Spam Detection
+
+This is machine-learning-based AI when the spam detector has learned patterns from previous email data. Instead of relying only on manually written rules, the model uses patterns learned during training to classify new messages.
+
+#### D. AI Document Summary
+
+This is generative AI because the system produces new text in response to a request. The assistant processes the document and generates a summary rather than simply following one fixed output rule.
+
+#### E. Navigation Estimated Arrival Time
+
+This can be classified as machine-learning-based AI when the application uses traffic and historical data to predict travel time. The system uses patterns in data to estimate an outcome for a new journey.
+
+---
+
+### What Makes AI Different From Explicitly Programmed Software?
+
+A traditional program can produce intelligent-looking behavior by following rules that humans explicitly specify. This does not automatically make the system an AI system.
+
+A machine-learning-based AI system can learn patterns from data and use those patterns to make predictions, classifications, or decisions for new inputs. Generative AI systems can additionally generate new content based on learned patterns.
+
+Therefore, a system should not be called AI simply because its output appears intelligent. We should consider **how the system produces that output**, particularly whether it uses learned patterns or generative models rather than only explicitly programmed instructions.
+
+---
+
+### Key Takeaway
+
+**Looks intelligent ≠ necessarily AI.**
+
+A calculator and a rule-based warning system can behave predictably and appear useful without using AI. Machine-learning systems learn patterns from data, while generative AI systems can create new content based on learned patterns.
 
 ---
 
