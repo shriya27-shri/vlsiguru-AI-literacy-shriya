@@ -250,15 +250,118 @@ A calculator and a rule-based warning system can behave predictably and appear u
 
 ---
 
-## Q3 - What Happens When You Ask an LLM a Question?
+## Q3. What Happens When You Ask an LLM a Question?
 
-### A - Answer
+### What Happens After a User Submits a Prompt?
 
-### E - Evidence
+When a user asks a question to a Large Language Model (LLM), the
+question is first treated as a prompt. The prompt is converted into
+smaller units called tokens. The model processes these tokens together
+with the available context and uses patterns learned during training
+to predict what token is likely to come next.
 
-### V - Verification
+The model does not generate the entire answer at once. It repeatedly
+predicts and selects the next token, adds that token to the generated
+sequence, and then uses the updated context to predict the following
+token. This process continues until the response is complete.
 
-### R - Reflection
+---
+
+### Key Terms
+
+#### 1. Prompt
+
+A prompt is the input provided by the user to the language model. It
+can be a question, instruction, request, or other text that tells the
+model what the user wants.
+
+**Example:**
+
+"What is a transistor?"
+
+This complete question is the user's prompt.
+
+#### 2. Token
+
+A token is a unit of text that the language model processes. A token
+may represent a whole word, part of a word, punctuation, or another
+piece of text, depending on the tokenizer.
+
+For example, a sentence such as:
+
+"AI is useful."
+
+may be divided into several tokens rather than being treated as one
+single piece of text.
+
+#### 3. Context
+
+Context is the information available to the model while generating a
+response. It can include the user's prompt and, in a conversation,
+relevant earlier messages.
+
+The context helps the model determine what the current response should
+be about and how the generated text should relate to the input.
+
+#### 4. Probability
+
+The model assigns probabilities to possible next tokens. These
+probabilities represent how likely different tokens are to follow the
+tokens that have already been processed.
+
+The model then uses these probabilities to select a token according to
+the generation method being used.
+
+#### 5. Next-Token Prediction
+
+Next-token prediction is the basic generation process used by
+autoregressive language models. Given the current sequence of tokens,
+the model predicts which token is likely to come next.
+
+After a token is selected, it becomes part of the sequence and the
+model predicts the next token again.
+
+This process is repeated until the response is complete.
+
+#### 6. Generated Response
+
+The generated response is the sequence of tokens produced by the
+model during the generation process. The tokens are converted back
+into readable text and presented to the user.
+
+---
+
+### Simple Flow Diagram
+
+```text
+User Prompt
+     |
+     v
+  Tokenization
+     |
+     v
+    Tokens
+     |
+     v
+Model processes tokens + context
+     |
+     v
+Probability distribution
+for possible next tokens
+     |
+     v
+Next-token selection
+     |
+     v
+Selected token added to context
+     |
+     +--------------------+
+     |                    |
+     |  Predict next token|
+     +---------<----------+
+              |
+              v
+    Generated Response
 
 ---
 
