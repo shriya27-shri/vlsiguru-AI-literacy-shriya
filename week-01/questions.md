@@ -363,17 +363,66 @@ Selected token added to context
               v
     Generated Response
 
----
 
-## Q4 - Hallucination Experiment
 
-### A - Answer
+## Q4. Hallucination Experiment: Can AI Sound Confident and Still Be Wrong?
 
-### E - Evidence
+### Experiment Question
 
-### V - Verification
+**In scan-based DFT, what is the difference between the shift operation and the capture operation? Explain the roles of Scan In (SI), Scan Out (SO), the scan clock, and the capture clock, and describe what happens to the test data during each operation.**
 
-### R - Reflection
+I asked the same question to two different AI assistants and compared their responses with independent DFT references.
+
+### AI Response Comparison
+
+| Model  | Response Summary                                                                                                                                                                                                               | Verified Claim                                                                                                                                          | Evidence                           | Result         |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | -------------- |
+| Gemini | Explained scan flip-flops, SI/SO, scan clock, scan enable, shift, capture, and the shift-in/capture/shift-out sequence.                                                                                                        | The core description of shifting test data through a scan chain and capturing the circuit response is supported by DFT references.                      | Cadence and Synopsys DFT resources | Mostly correct |
+| Claude | Explained scan flip-flops using a scan multiplexer, SE-controlled shift/capture modes, SI/SO, scan clock, capture clock, and the shift-in/capture/shift-out sequence. It also discussed stuck-at and transition-fault testing. | The core scan-chain and shift/capture explanation is supported. Some additional timing claims go beyond the question and require separate verification. | Cadence and Synopsys DFT resources | Mostly correct |
+
+### Verification of Important Claims
+
+#### 1. Shift operation
+
+Both AI responses correctly explained that the scan chain allows test data to be shifted serially through scan flip-flops. SI provides the serial scan data input and SO provides the serial scan output. During shifting, clock pulses move data from one scan cell to the next.
+
+Synopsys describes traditional scan architectures as using a scan clock for shifting tester data through internal scan chains. Cadence documentation also identifies SI and SO as scan inputs and outputs and SE as the scan-enable signal.
+
+#### 2. Capture operation
+
+Both AI responses correctly explained that after a test pattern has been shifted into the scan chain, the circuit is placed in the appropriate capture mode so that the response of the functional logic can be captured in the scan flip-flops.
+
+This is consistent with the scan test sequence described by Synopsys: after scan data is shifted in, functional clocks are applied to the design, after which the flip-flops return to shift mode so the captured results can be shifted out.
+
+#### 3. Scan Enable
+
+Claude explicitly explained the role of the scan-enable signal and described the common convention of SE=1 for shift and SE=0 for capture.
+
+This is a common active-high implementation, but the polarity should not be treated as universal because the exact test configuration can vary between designs.
+
+#### 4. A subtle difference between the answers
+
+Gemini described the scan chain as being "temporarily disabled" during capture. This wording is an oversimplification. A more precise description is that the scan flip-flops remain part of the scan architecture, while the scan-enable control selects the functional data path rather than the serial scan path during capture.
+
+Claude's explanation using the scan multiplexer provides a more structurally precise description of this behavior.
+
+### Result
+
+Neither AI produced a completely incorrect answer. Both correctly described the fundamental difference between shift and capture operations.
+
+However, the experiment identified an important issue: an answer can be broadly correct while still using imprecise wording or adding technical claims that require additional verification.
+
+The Gemini response used the phrase "scan chain is temporarily disabled," which can be misleading if interpreted literally. Claude gave a more detailed explanation of the scan multiplexer and scan-enable behavior.
+
+Claude also introduced additional claims about stuck-at testing, transition faults, and at-speed capture. These claims were not necessary to answer the original question, so they should be treated as separate technical claims rather than automatically accepted.
+
+### Reflection
+
+This experiment showed me that hallucination testing does not always mean finding an obviously wrong answer. Both AI systems produced technically reasonable explanations, but comparing them with independent DFT references revealed differences in precision and scope.
+
+The main lesson is that an AI answer can sound confident and technically detailed while still containing wording that needs clarification. In engineering, I should therefore verify important technical claims instead of judging an answer only by how clear or confident it sounds.
+
+For DFT topics, this is especially important because small differences in terms such as scan enable, shift mode, capture mode, and clock behavior can affect how the actual test operation is understood.
 
 ---
 
