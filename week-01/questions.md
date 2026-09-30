@@ -426,15 +426,67 @@ For DFT topics, this is especially important because small differences in terms 
 
 ---
 
-## Q5 - AI Assistant vs Search vs Authoritative Reference
+## Q5. Comparing AI, Web Search, and an Authoritative Reference
 
-### A - Answer
+### Technical Question
 
-### E - Evidence
+**Why is scan compression used in DFT, and how does it reduce test data volume compared with an uncompressed scan architecture?**
 
-### V - Verification
+I used the same technical question with AI assistants and then compared their explanations with information available from semiconductor EDA companies and DFT documentation.
 
-### R - Reflection
+### 1. AI Assistant Response
+
+The AI explanations described scan compression as a technique used to reduce the amount of test data and test time required for large designs.
+
+The main idea was that a small number of external tester channels can feed a larger number of internal scan chains through a **decompressor**, while a **compactor** combines responses from multiple internal scan chains before sending them back through a smaller number of tester channels.
+
+This allows the internal scan chains to be shorter and reduces the amount of data that must be transferred between the tester and the chip.
+
+### 2. Web Search Findings
+
+Web searches for scan compression from established semiconductor EDA companies supported the main explanation.
+
+Synopsys describes DFT compression as addressing increasing **test data volume, test time, and the number of test pins** required for testing complex designs. Its TestMAX DFT solution includes scan chains and compression as part of its DFT flow.
+
+Cadence describes a DFT architecture containing **compressor/decompressor logic and scan chains**. Its Modus DFT solution includes scan compression and ATPG capabilities.
+
+### 3. Authoritative Reference
+
+A Synopsys DFTMAX compression document explains that compression architectures use codec/compression logic to reduce **test application time and test data volume**, while working with a limited number of test I/O channels. It also explains that compression ratios affect scan-chain length and test-time reduction.
+
+Therefore, the authoritative reference supports the main AI explanation that scan compression trades additional on-chip DFT logic for reduced test-data volume, shorter effective scan chains, and reduced test time.
+
+### 4. Comparison
+
+| Method                          | Accuracy                                                        | Explanation                                          | Traceability                                                      | Ease of Verification                                                    |
+| ------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| AI assistant                    | Good for the basic concept, but individual claims need checking | Very easy to understand and gives intuitive examples | Lower unless sources are provided                                 | Easy for basic concepts, but important claims need independent checking |
+| Web search                      | Depends on the sources selected                                 | Provides multiple explanations and viewpoints        | Better because the original webpages can be identified            | Good when reliable technical sources are selected                       |
+| Authoritative/primary reference | Strong for documented technical claims                          | May be more detailed and less beginner-friendly      | High because the original organization/document can be identified | Best for verifying specific engineering claims                          |
+
+### 5. What I Learned
+
+The three methods serve different purposes.
+
+**AI assistants** are useful for quickly understanding a difficult DFT concept and getting a beginner-friendly explanation. However, an AI-generated explanation should not automatically be treated as authoritative.
+
+**Web search** is useful for finding multiple sources and locating documentation, application notes, technical articles, and explanations from semiconductor companies.
+
+**Authoritative references** are particularly useful when I need to verify an engineering claim. For this question, Synopsys and Cadence documentation provided direct evidence that scan compression is used to reduce test-data volume and test time and to work with limited test I/O.
+
+### Conclusion
+
+For learning a new DFT concept, I found AI useful for producing a quick and understandable explanation. However, for confirming whether a technical statement is actually supported, an authoritative reference is more traceable.
+
+This experiment showed that the most reliable workflow is not necessarily to choose only one method. AI can help explain the concept, web search can help locate relevant sources, and authoritative documentation can be used to verify the important technical claims.
+
+### Sources Used
+
+1. Synopsys — TestMAX DFT: Design-for-Test Implementation.
+2. Synopsys — DFTMAX Compression Shared I/O.
+3. Cadence — Modus DFT Software Solution.
+4. Cadence — Modus DFT Software Solution product information.
+
 
 ---
 
