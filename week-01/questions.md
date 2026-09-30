@@ -490,51 +490,309 @@ This experiment showed that the most reliable workflow is not necessarily to cho
 
 ---
 
-## Q6 - What Is an AI Agent?
+## Q6. What Is an AI Agent?
 
-### A - Answer
+### 1. Five Key Concepts
 
-### E - Evidence
+**Large Language Model (LLM):**  
+An LLM is a type of AI model trained on large amounts of text to understand and generate human-like language. It generates responses by predicting suitable next tokens based on the input and context.
 
-### V - Verification
+**LLM Application:**  
+An LLM application is a complete software application that uses an LLM as one of its components. It may add a user interface, instructions, application logic, memory, or other features around the model.
 
-### R - Reflection
+**RAG System:**  
+RAG stands for **Retrieval-Augmented Generation**. A RAG system retrieves relevant information from an external knowledge source and provides that information to the LLM so that the model can generate a response using the retrieved context.
+
+**Tool-Using Assistant:**  
+A tool-using assistant is an AI system that can use external tools to perform tasks that the language model cannot reliably perform by itself. Examples include search engines, calculators, databases, APIs, or other software tools.
+
+**AI Agent:**  
+An AI agent is a system designed to work toward a goal through multiple steps. It can determine what actions or information are needed, use available tools, inspect their results, and continue the workflow before producing a final response.
+
+### 2. AI Agent Architecture
+
+```text
+                 USER REQUEST
+                      |
+                      v
+              +---------------+
+              |   AI Agent    |
+              |   / LLM       |
+              +---------------+
+                      |
+                      v
+              Understand Goal
+                      |
+                      v
+              Decide Next Step
+                      |
+              +-------+-------+
+              |               |
+              v               v
+        Need Information?   Need Tool?
+              |               |
+              v               v
+        Retrieve Data      Call Tool/API
+              |               |
+              +-------+-------+
+                      |
+                      v
+                 Tool Result
+                      |
+                      v
+               Evaluate Result
+                      |
+              +-------+-------+
+              |               |
+              v               v
+        More steps needed?   Goal completed
+              |               |
+              v               v
+          Repeat          Final Response
+          Workflow
+### 3. Agent vs Simple Chatbot
+
+A simple chatbot mainly receives a user's message and generates a response. It is generally reactive and depends on the user's prompts to continue the interaction.
+
+An AI agent is designed to work toward a specific goal through multiple steps. It can plan actions, use available tools, obtain information from external sources, evaluate results, and continue the workflow with less continuous user direction.
+
+| Feature | Simple Chatbot | AI Agent |
+|---|---|---|
+| Main purpose | Conversation and response generation | Goal-oriented task completion |
+| Interaction | Mainly responds to user prompts | Can take multiple steps toward a goal |
+| Planning | Usually limited | Can plan and break a task into subtasks |
+| Tool use | May have limited or predefined tool access | Can select and use available tools as part of a workflow |
+| Workflow | Usually prompt → response | Goal → plan → action/tool use → result → next action |
+| Autonomy | More dependent on continuous user input | Can operate more independently within defined permissions |
+
+For example, a chatbot can answer **"What are some good hotels in Singapore?"** by generating a response. An AI agent could take the goal **"Plan my three-day Singapore trip within my budget,"** gather relevant information using available tools, compare options, and create an itinerary.
+
+Therefore, the main difference is not simply that an agent uses a more advanced language model. The difference is in the **overall system behavior**: an agent can pursue a goal through a multi-step workflow and use tools or external information to complete that goal.
+
+### 4. Non-VLSI Example: Travel-Planning Agent
+
+Consider an AI agent given the request:
+
+> **"Plan a three-day trip to Singapore within my budget."**
+
+The agent could:
+
+1. Understand the user's destination, dates, and budget.
+2. Retrieve relevant travel information.
+3. Search for suitable transportation.
+4. Find hotels within the budget.
+5. Search for suitable activities.
+6. Compare the collected information.
+7. Create a three-day itinerary.
+8. Present the final plan to the user.
+
+This is different from a simple chatbot because the system can perform several connected steps and use external information or tools to work toward the user's goal.
+
+### 5. Verification
+
+The explanation was checked against the VLSIGuru Week 1 assessment requirements and reliable technical sources about AI agents and retrieval-augmented systems.
+
+The VLSIGuru assessment emphasizes understanding the underlying system behavior rather than relying on vendor-specific definitions. It specifically distinguishes a model that generates text from a system that can use tools and act through a workflow.
+
+The explanation is consistent with the general concept that an AI agent can work toward a goal through multiple steps and interact with external tools or information when required.
+
+### Reflection
+
+This question helped me distinguish between an **LLM and a larger AI system built around an LLM**. An LLM mainly provides language generation, while an LLM application can add instructions, application logic, retrieval, tools, or other capabilities.
+
+A RAG system adds external information retrieval to provide relevant context to the model. A tool-using assistant can interact with external tools to perform specific tasks. An AI agent can combine these capabilities and use them as part of a multi-step workflow toward a goal.
+
+The main lesson is that **not every application using an LLM is an AI agent**. The important factor is how the overall system behaves and whether it can use tools and carry out a goal-directed workflow.
+
+### Sources
+1. IBM Think — AI Agents
+2. IBM Think — Retrieval-Augmented Generation (RAG)
+3. VLSIGuru — AI Literacy Layer, Week 1 Student Assessment
+---
+
+## Question 7: Human Oversight of AI Systems
+
+AI systems can produce useful outputs, but human review is important when an incorrect or biased output could cause significant harm or when the decision affects people's rights, safety, money, or opportunities.
+
+### 1. Situations Where Humans Should Inspect or Approve AI Output
+
+| Situation | Why Human Review Is Needed | Possible Risk |
+|---|---|---|
+| Medical diagnosis or treatment suggestions | Medical decisions can directly affect a person's health | Incorrect diagnosis or treatment |
+| Loan or credit decisions | Financial decisions can significantly affect a person's access to money | Unfair or incorrect decisions |
+| Hiring or candidate screening | AI may influence a person's employment opportunity | Bias or rejection based on inappropriate factors |
+| Legal or compliance decisions | Legal decisions can have serious consequences | Incorrect interpretation of laws or evidence |
+| Safety-critical systems | Errors can cause physical harm or equipment failure | Unsafe actions or incorrect decisions |
+
+### 2. Why Human Oversight Matters
+
+AI systems can make mistakes, produce incomplete information, or reflect limitations in their training data and design. Human review provides an opportunity to check whether the output is appropriate before an important decision or action is taken.
+
+Human oversight is especially important when:
+- The consequences of an error are serious.
+- The decision affects a person's rights or opportunities.
+- The AI output cannot be easily verified.
+- The system is operating in an unfamiliar or unusual situation.
+- Sensitive or personal information is involved.
+
+### 3. Evidence and Verification
+
+The need for human oversight is consistent with responsible AI principles that emphasize human involvement, transparency, accountability, and the ability to review AI-supported decisions.
+
+For important decisions, AI output should not automatically be treated as the final answer. A qualified person should be able to inspect the evidence, question the result, and approve or reject the proposed action.
+
+### 4. Responsible AI Rule
+
+> **AI can assist with decisions, but humans should remain responsible for reviewing and approving high-impact decisions.**
+
+This means that AI output should be treated as assistance rather than unquestionable authority. The level of human review should depend on the potential impact and risk of the decision.
+
+### 5. Reflection
+
+This question helped me understand that using AI responsibly is not only about getting an accurate answer. It is also about considering what could happen if the answer is wrong.
+
+For low-risk tasks, AI output may only need a basic check. For high-impact situations such as healthcare, employment, finance, law, or safety, human review becomes much more important.
+
+The main lesson I learned is that **human oversight should increase as the potential impact of an AI error increases.**
+
 
 ---
 
-## Q7 - Where Should Humans Still Make the Decision?
+## Question 8: AI/ML in Everyday Systems
 
-### A - Answer
+AI and machine learning are used in many everyday systems. However, not every automated system necessarily requires AI or machine learning.
 
-### E - Evidence
+### 1. Everyday Systems
 
-### V - Verification
+| Everyday System | AI/ML Involvement | Task Type | Evidence / Reason | Uncertainty | Simpler Rule-Based Alternative |
+|---|---|---|---|---|---|
+| Email spam filter | Machine Learning | Classification | Learns patterns from examples of spam and normal emails | A message may be incorrectly classified | A manually maintained list of blocked senders or keywords |
+| Voice assistant | AI / Machine Learning | Speech recognition + language understanding | Converts spoken language into text and interprets the request | May misunderstand accents, pronunciation, or unclear speech | Fixed voice commands with predefined phrases |
+| YouTube/Netflix recommendations | Machine Learning | Recommendation | Uses information about viewing behavior and content to suggest items | Recommendations may not match the user's actual interests | Fixed categories or manually selected preferences |
+| Google Maps route/ETA prediction | Machine Learning + traditional algorithms | Prediction + optimization | Uses traffic and historical travel information to estimate travel time and routes | Traffic conditions can change unexpectedly | Fixed routes based only on distance or predefined rules |
+| Smartphone face unlock | Machine Learning / Computer Vision | Recognition | Analyzes facial features to determine whether the face matches the enrolled user | Lighting, pose, or appearance changes can affect recognition | PIN, password, or pattern lock |
 
-### R - Reflection
+### 2. Why AI/ML Is Used
 
+AI or machine learning is useful when the system needs to recognize patterns, make predictions, understand complex inputs, or adapt to data.
+
+For example, a spam filter cannot rely only on a small fixed list of words because spam messages can change their wording. A machine-learning model can learn patterns from examples and use them to classify new messages.
+
+### 3. Where Uncertainty Comes From
+
+Unlike a simple rule-based system, many AI/ML systems operate with some degree of uncertainty.
+
+For example:
+
+- A voice assistant may misunderstand speech.
+- A recommendation system may suggest something the user does not like.
+- A navigation system may underestimate travel time because traffic changes.
+- A face-recognition system may perform differently under different conditions.
+
+Therefore, an AI output should not always be treated as certain or guaranteed.
+
+### 4. Could AI Be Replaced by Rules?
+
+In some cases, yes.
+
+If a task has simple, predictable, and clearly defined conditions, a rule-based system may be sufficient.
+
+For example:
+
+```text
+IF temperature > 40°C
+    THEN display "High Temperature Warning"
+This does not require machine learning because the condition and result are explicitly defined.
+
+However, tasks involving complex patterns, large amounts of data, or changing inputs may be more difficult to handle using only fixed rules.
+
+###5. Reflection
+
+This question helped me understand that automation and AI are not the same thing. A system can perform an automated task using simple predefined rules without using machine learning.
+
+AI/ML becomes more useful when the system needs to learn patterns from data, recognize complex inputs, or make predictions where the exact rules are difficult to define manually.
+
+The main lesson I learned is that AI should be used when it provides a meaningful advantage over simpler approaches, rather than assuming every automated system needs AI.
 ---
 
-## Q8 - Find AI Around You
+## Question 9: Prediction, Classification, and Generation
 
-### A - Answer
+These are three broad types of tasks commonly used in AI and machine-learning systems.
 
-### E - Evidence
+### 1. Classification of Examples
 
-### V - Verification
+| Example | Task Type | Explanation |
+|---|---|---|
+| A. Predicting house prices | Prediction | The system estimates a numerical value, such as the future or expected price of a house. |
+| B. Detecting whether an image contains a cat | Classification | The system assigns the image to a category such as "cat" or "not cat." |
+| C. Writing an email from a short instruction | Generation | The system creates new text based on the user's instruction. |
+| D. Predicting whether a customer will cancel a subscription | Prediction | The system estimates the likelihood of a future event based on available information. |
+| E. Summarizing a research paper | Generation | The system generates a shorter version of the original content. |
+| F. Identifying whether a transaction is fraudulent | Classification | The system classifies the transaction into categories such as "fraudulent" or "not fraudulent." |
+| G. Generating an image from a text description | Generation | The system creates new visual content based on the text prompt. |
+| H. Predicting the next word/token in a sentence | Prediction | The model estimates which token is most likely to come next based on the previous context. |
 
-### R - Reflection
+### 2. Understanding the Three Task Types
 
----
+#### Prediction
 
-## Q9 - Prediction, Classification, and Generation
+Prediction means estimating a value, outcome, or future event based on available information.
 
-### A - Answer
+Examples:
+- Predicting house prices
+- Predicting customer cancellation
+- Predicting the next token in a sentence
 
-### E - Evidence
+The output can be a numerical value, probability, or another predicted outcome.
 
-### V - Verification
+#### Classification
 
-### R - Reflection
+Classification means assigning an input to one or more predefined categories.
+
+Examples:
+- Cat vs. not cat
+- Fraudulent vs. legitimate transaction
+- Spam vs. normal email
+
+The system chooses a category based on patterns in the input.
+
+#### Generation
+
+Generation means producing new content based on an input, instruction, or context.
+
+Examples:
+- Writing an email
+- Summarizing a research paper
+- Generating an image from a text description
+
+The output is newly generated content rather than simply selecting one predefined category.
+
+### 3. Important Observation
+
+Some real-world AI systems can combine multiple task types.
+
+For example, an AI system might first classify an input, then make a prediction, and finally generate a response for the user.
+
+Therefore, the categories are useful for understanding the primary task being performed, but they do not mean that every complete AI application performs only one type of task.
+
+### 4. Evidence and Verification
+
+I classified the examples according to the primary purpose of the task:
+
+- Estimating an amount or future outcome → Prediction
+- Assigning an input to a category → Classification
+- Creating new content → Generation
+
+This classification also matches the Week 1 assessment's distinction between prediction, classification, and generation as broad AI task types.
+
+### 5. Reflection
+
+This question helped me understand that AI systems can perform different kinds of tasks. Prediction focuses on estimating an outcome, classification focuses on assigning categories, and generation focuses on creating new content.
+
+Understanding these differences will help me recognize what an AI or machine-learning system is actually doing instead of simply calling every intelligent-looking system "AI."
+
+### Sources
+NIST — Artificial Intelligence Risk Management Framework (AI RMF)
 
 ---
 
@@ -542,8 +800,64 @@ This experiment showed that the most reliable workflow is not necessarily to cho
 
 ### A - Answer
 
+My personal AI verification protocol is a simple process I can follow whenever I use AI for technical or important work:
+
+1. **Define the task clearly** — Understand what I am trying to find out or accomplish.
+2. **Ask the AI** — Use a clear prompt and provide the necessary context.
+3. **Inspect the response** — Check the answer for assumptions, missing information, unsupported claims, and possible errors.
+4. **Verify important claims** — Check important technical or factual information using reliable sources such as official documentation, standards, research papers, or other authoritative references.
+5. **Compare evidence** — If sources disagree, investigate the disagreement instead of automatically accepting the AI response.
+6. **Conclude carefully** — Decide what is supported by the available evidence and clearly state any remaining uncertainty.
+7. **Document and reflect** — Record important sources and consider what could still go wrong.
+
 ### E - Evidence
 
-### V - Verification
+The Week 1 assessment recommends the A-E-V-R method:
 
-### R - Reflection
+- **A — Answer:** What is my answer to the question?
+- **E — Evidence:** What evidence supports the answer?
+- **V — Verification:** How did I check that the answer is reliable?
+- **R — Reflection:** What did I learn, and what could still go wrong?
+
+The assessment also recommends a broader workflow:
+
+```text
+DEFINE
+   ↓
+ASK / INVESTIGATE
+   ↓
+INSPECT
+   ↓
+VERIFY
+   ↓
+CONCLUDE
+   ↓
+DOCUMENT
+   ↓
+REFLECT
+
+For important claims, I should prefer authoritative or primary sources first, followed by high-quality secondary sources. AI assistants can help with explanation, brainstorming, comparison, and finding possible references, but the AI-generated answer itself should not be treated as the final authority.
+
+###V - Verification
+
+I verified my protocol against the VLSIGuru Week 1 Student Assessment and its recommended A-E-V-R workflow and source hierarchy.
+
+The assessment specifically emphasizes that AI output should be inspected and important factual or technical claims should be verified before submission. It also states that if a claim cannot be verified, I should document that limitation rather than pretend to be certain.
+
+Therefore, my protocol is:
+
+Define → Ask → Inspect → Verify → Conclude → Document → Reflect
+
+This process helps make my AI-assisted work more traceable and reduces the risk of accepting an AI-generated answer simply because it sounds convincing.
+
+###R - Reflection
+
+This question helped me understand that using AI responsibly is not just about writing a good prompt. I also need to check what the AI produces.
+
+My main takeaway is that AI is a useful assistant, but verification is my responsibility. For technical work, I should check important claims against reliable sources and record the evidence I used.
+
+I also learned that uncertainty is acceptable. If I cannot verify a claim, it is better to clearly state that it could not be verified than to present an unsupported answer as a fact.
+
+Going forward, I will use the following personal rule:
+
+####Ask AI for assistance, inspect the output, verify important claims, document the evidence, and make the final judgment myself.
