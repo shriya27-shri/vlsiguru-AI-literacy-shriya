@@ -5,7 +5,7 @@
 Model evaluation helps us determine whether a model makes useful predictions on data it has not seen before. A model that performs well on its training data may still make poor predictions on new examples.
 
 ## 2. Training, validation and test datasets
-
+ 
 - **Training set:** The data used to teach the model and learn its parameters.
 - **Validation set:** The data used during development to compare models and tune settings.
 - **Test set:** A separate set used to estimate how well the final model performs on unseen data.
