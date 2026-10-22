@@ -1,6 +1,6 @@
 # Mission 1 — Build the AI and ML Landscape
 
-## 1. Introduction
+## 1. Introduction 
 
 Artificial Intelligence (AI) is a broad field focused on building computer systems that perform tasks requiring capabilities such as reasoning, pattern recognition, prediction, or language understanding.
 
