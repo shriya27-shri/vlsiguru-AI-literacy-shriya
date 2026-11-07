@@ -114,4 +114,30 @@ These are potential applications and should not be confused with confirmed built
 
 ## 9. Learning Outcome
 
-This investigation helped me understand how open-source tools can support DFT activities and how ATPG, scan stitching, and fault simulation are connected in the testing process.
+## Practical Example: Stuck-at Fault Testing
+
+Consider a simple logic circuit:
+
+```verilog
+module and_gate (
+    input A, B,
+    output Y
+);
+assign Y = A & B;
+endmodule
+```
+
+The expected output is:
+
+| A | B | Good output Y |
+|---|---|---|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+If the output is stuck at 0, applying A=1 and B=1 should produce Y=1 in a fault-free circuit. The actual output remains 0, so the fault can be detected.
+
+This demonstrates the basic idea behind ATPG: generate input patterns that activate a fault and make its effect observable at an output.
+
+**What I learned:** Fault supports DFT activities such as ATPG, fault simulation, scan-chain insertion and test-vector compaction. This practical example helped me understand how test patterns detect manufacturing faults.
