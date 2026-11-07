@@ -6,8 +6,74 @@ The objective of this assignment is to explore practical AI tools, improve promp
 
 ## Missions
 
-### Mission 1 – Previous Assignments
-Reviewed the Week 01 and Week 02 learning assignments and portfolio structure.
+
+---
+
+## Mission 1 – Week 01 and Week 02 Review
+
+### Week 01 – AI Literacy Foundations
+
+Reviewed the completed Week 01 assignments and reflections.
+
+Key concepts learned:
+- Artificial Intelligence, Machine Learning and Deep Learning.
+- Generative AI and AI agents.
+- How Large Language Models generate responses.
+- AI hallucinations and technical verification.
+- Responsible AI usage and human oversight.
+- Personal AI Verification Protocol using A-E-V-R.
+
+### Week 02 – Machine Learning Foundations
+
+Reviewed the completed Week 02 missions and reflection.
+
+Key concepts learned:
+- Machine learning workflow.
+- Data preparation, features and targets.
+- Classification, regression and clustering.
+- Model evaluation and generalisation.
+- Limitations of machine learning.
+- Applications of ML in semiconductor engineering.
+
+### Concepts I Want to Explore Further
+
+1. How can we select an appropriate ML algorithm and identify useful features for an engineering problem?
+2. How should we evaluate models using accuracy, precision and recall when datasets are imbalanced?
+3. How can an ML model trained on one chip design generalise to another design?
+
+---
+
+## Mission 2 – Python Learning (Harvard CS50P)
+
+### Current Progress
+
+Continuing Harvard CS50P from my existing learning progress.
+
+| Week | Topic | Status |
+|---|---|---|
+| Week 0 | Functions and Variables | Completed |
+| Week 1 | Conditionals | Completed |
+| Week 2 | Loops | Completed |
+| Week 3 | Exceptions | Next |
+
+### Learning Approach
+
+My focus is on understanding Python concepts, practising programming exercises, debugging errors, and explaining my code independently.
+
+### Next Learning Goals
+
+- Understand Python exceptions.
+- Learn try and except blocks.
+- Handle common errors such as ValueError.
+- Practise writing programs with error handling.
+- Complete the Week 3 exercises.
+
+### Reflection
+
+I have completed the introductory Python topics covering functions, variables, conditionals and loops.
+
+My next step is to learn exception handling so that I can write programs that handle unexpected inputs and errors more effectively.
+
 
 
 ## Mission 2 – Python Learning (CS50P)
