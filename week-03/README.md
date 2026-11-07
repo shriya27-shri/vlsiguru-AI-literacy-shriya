@@ -1,5 +1,5 @@
 
-# Week 03 – Practical AI Tools & Engineering Learning
+# Week 03 – Practical AI Tools & Engineering Learning 
 
 ## Objective
 The objective of this assignment is to explore practical AI tools, improve prompting skills, verify AI-generated information, continue Python learning, and investigate an open-source VLSI tool.
