@@ -67,7 +67,38 @@ I learned that it combines multiple DFT-related functions, including scan stitch
 
 **Practical experiment:**
 
-[Record whether you installed the tool or successfully ran an example. If not, explain that your investigation was documentation-based.]
+
+## Installation and Dependencies
+
+According to the official Fault documentation, the tool requires several supporting EDA utilities.
+
+| Dependency | Purpose |
+|---|---|
+| Python 3.8+ | Runs the Fault Python package/interface |
+| Yosys | Synthesizes Verilog RTL into a netlist |
+| Icarus Verilog | Supports simulation and fault verification |
+| Swift 5.6+ | Required when building Fault from source |
+| Quaigh | Optional but recommended ATPG utility |
+
+Fault can be installed using its Python package or through Nix. Other EDA dependencies must also be installed separately when using the manual installation route.
+
+## Basic Fault Workflow
+
+1. **Synth:** Converts Verilog RTL into a flattened netlist using Yosys.
+2. **Cut:** Handles sequential elements in the netlist to prepare it for fault simulation.
+3. **ATPG:** Generates test vectors and performs fault simulation using a stuck-at fault model.
+4. **Compact:** Reduces the number of test vectors while preserving test effectiveness.
+5. **Chain:** Performs scan-chain stitching.
+6. **Verification:** Checks the generated test and scan-related outputs.
+
+## Relevance to DFT
+
+Fault is relevant to DFT because it provides an open-source environment for exploring ATPG, fault simulation, scan-chain stitching, and test-vector compaction.
+
+**Installation reference:** https://fault.readthedocs.io/en/latest/installation.html
+
+**Workflow reference:** https://fault.readthedocs.io/en/latest/index.html
+
 
 ## 8. Where Can AI or ML Help?
 
